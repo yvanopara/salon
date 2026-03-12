@@ -1,0 +1,105 @@
+.footer {
+  background: #0a2a33;
+  color: #cfd8dc;
+  padding: 20px 8vw;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-section h2 {
+  color: #fff;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+.footer-section ul li a {
+  color: #cfd8dc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.logoName {
+  color: tomato;
+  font-family: 'Saira Stencil One', sans-serif;
+  font-size: 28px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfd8dc;
+  font-size: 24px; /* taille de l'icône */
+  margin-right: 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.footer-socials a:last-child {
+  margin-right: 0; /* Pas d'espace après la dernière icône */
+}
+
+
+hr {
+  border: none;
+  height: 1px;
+  background: #455a64;
+  margin: 40px 0;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 14px;
+  color: #90a4ae;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-section {
+    align-items: center;
+  }
+
+  .footer-socials a img {
+    margin: 0 10px;
+  }
+}

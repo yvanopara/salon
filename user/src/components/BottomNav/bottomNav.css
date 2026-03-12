@@ -1,0 +1,146 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+/* SVG en mode sombre */
+.bottom-nav.dark svg {
+  stroke: white;
+  fill: none;
+}
+
+/* SVG actif en mode sombre */
+.bottom-nav.dark .nav-item.active svg {
+  stroke: #a855f7;
+}
+.bottom-nav.dark {
+  background: #1f2937;
+  border-top-color: #374151;
+  color: white;
+}
+
+.bottom-nav.dark {
+  background: #1f2937;
+  border-top-color: #374151;
+}
+
+.bottom-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 10px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  flex: 1;
+  max-width: 70px;
+  transition: all 0.2s ease;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Mode clair */
+.bottom-nav.light {
+  color: #6b7280;
+}
+
+.bottom-nav.light .nav-label {
+  color: #6b7280;
+}
+
+.bottom-nav.light .nav-item.active {
+  color: #9333ea;
+}
+
+.bottom-nav.light .nav-item.active .nav-label {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Mode sombre */
+.bottom-nav.dark {
+  color: #9ca3af;
+}
+
+.bottom-nav.dark .nav-label {
+  color: #9ca3af;
+}
+
+.bottom-nav.dark .nav-item.active {
+  color: #a855f7;
+}
+
+.bottom-nav.dark .nav-item.active .nav-label {
+  background: linear-gradient(135deg, #a855f7, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.nav-item:active {
+  transform: translateY(0);
+}
+
+/* Support pour les appareils avec encoche */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(70px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Animation d'entrée */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.bottom-nav {
+  animation: slideUp 0.3s ease-out;
+}
