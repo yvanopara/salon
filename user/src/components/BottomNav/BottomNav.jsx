@@ -93,7 +93,7 @@ const BottomNav = ({ dark }) => {
   };
 
   const navItems = [
-    { path: "/dashboard", icon: icons.home, label: "Accueil" },
+    { path: "/dashboard", icon: icons.home, label: "Home" },
     { path: "/styles", icon: icons.style, label: "Styles" },
     { path: "/chat", icon: icons.chat, label: "Chat" },
     { path: "/blog", icon: icons.blog, label: "Blog" },

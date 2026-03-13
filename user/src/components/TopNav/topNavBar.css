@@ -16,17 +16,17 @@ body {
 /* ── CSS VARIABLES ── */
 :root {
   --grad: linear-gradient(90deg, #a855f7 0%, #d946a8 50%, #f97316 100%);
-  --nav-height: 110px;
+  --nav-height: 80px;
   --search-bar-height: 52px;
   --radius-btn: 9px;
   --radius-card: 12px;
   --transition-base: 0.18s ease;
 }
-.nav-logo-img{
+/* .nav-logo-img{
   width:228px;
   height:98px;
   object-fit:contain;
-}
+} */
 /* ── NAV FIXED WRAPPER ── */
 .nav-fixed-wrapper {
   position: fixed;
@@ -400,8 +400,9 @@ body {
 .anim-fade-up-4 { animation: fadeUp 0.22s ease 0.15s both; }
 .anim-fade-up-5 { animation: fadeUp 0.22s ease 0.20s both; }
 
-/* .nav-logo-img{
-  width:28px;
-  height:28px;
+.nav-logo-img{
+  width:115px;
+  height:115px;
   object-fit:contain;
-} */
+    margin-left: -8px;
+}
