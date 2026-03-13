@@ -1,8 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "./sideBar.css";
 
 export default function Sidebar({ isOpen, closeSidebar, dark }) {
   const navigate = useNavigate();
+
+  // Effet pour ajouter/enlever le flou sur le body
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+    
+    // Nettoyage quand le composant est démonté
+    return () => {
+      document.body.classList.remove('sidebar-open');
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { label: "Dashboard", path: "/dashboard" },

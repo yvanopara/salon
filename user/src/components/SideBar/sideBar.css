@@ -2,9 +2,9 @@
 .sidebar-overlay {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  z-index: 100;
   background: rgba(8, 3, 18, 0.38);
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */  /* ← Commenté pour enlever le flou d'ici */
   animation: fadeIn 0.2s ease;
 }
 
@@ -15,7 +15,7 @@
   left: 0;
   width: 258px;
   height: 100vh;
-  z-index: 95;
+  z-index: 101;  /* ← Augmenté pour être au-dessus de l'overlay */
   display: flex;
   flex-direction: column;
   padding-top: 74px;
@@ -23,6 +23,7 @@
   animation: sideSlide 0.26s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Le reste du CSS reste identique */
 .sidebar.light {
   background: linear-gradient(155deg, #fdfaff 0%, #f4eeff 100%);
   border-right: 1px solid rgba(139, 92, 246, 0.15);
