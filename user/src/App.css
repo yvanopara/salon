@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+/* Wrapper pour toutes les pages */
+.page-wrapper.light {
+  background-color: #fff; /* fond clair */
+  color: #000;            /* texte noir */
+  min-height: 100vh;
+}
+
+.page-wrapper.dark {
+  background-color: #111; /* fond noir */
+  color: #fff;            /* texte blanc */
+  min-height: 100vh;
+}

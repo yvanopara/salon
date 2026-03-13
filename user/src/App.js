@@ -1,62 +1,75 @@
+// App.js
+
 import React, { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import GoogleLoginButton from "./components/GoogleLoginButton";
-import Dashboard         from "./components/Dashboard";
-import BottomNav         from "./components/BottomNav/BottomNav";
-
-import TopNavBar from "./components/TopNav/TopNavBar";
-
+import Home from "./pages/home/Home";
+import Dashboard from "./components/Dashboard";
 import SettingsPage from "./components/Settings/Settings";
+import TopNavBar from "./components/TopNav/TopNavBar";
+import BottomNav from "./components/BottomNav/BottomNav";
 import Sidebar from "./components/SideBar/SideBar";
 
-function Layout({ dark, setDark }) {
+/* THEME */
+import { useTheme } from "./context/ThemeContext";
+
+function Layout() {
+
   const location = useLocation();
+  const { theme } = useTheme();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const showNav = location.pathname !== "/";
 
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
-  const closeSidebar  = () => setSidebarOpen(false);
+  const closeSidebar = () => setSidebarOpen(false);
 
   return (
     <>
+
+      {/* Navbar */}
       {showNav && (
         <TopNavBar
-          dark={dark}
-          setDark={setDark}
-          openSidebar={toggleSidebar}   // passe toggleSidebar ici
+          openSidebar={toggleSidebar}
         />
       )}
 
-      {/* Sidebar séparé */}
-      <Sidebar
-        dark={dark}
-        isOpen={sidebarOpen}
-        closeSidebar={closeSidebar}
-      />
-
-      <Routes>
-        <Route path="/"            element={<GoogleLoginButton />} />
-        <Route path="/dashboard"   element={<Dashboard />} />
-        <Route
-          path="/settings"
-          element={<SettingsPage dark={dark} setDark={setDark} />}
+      {/* Sidebar */}
+      {showNav && (
+        <Sidebar
+          isOpen={sidebarOpen}
+          closeSidebar={closeSidebar}
         />
-      </Routes>
+      )}
 
-      {showNav && <BottomNav  dark={dark} />}
+      {/* Pages */}
+      <div className={`page-wrapper ${theme}`}>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="/settings"
+            element={<SettingsPage />}
+          />
+
+        </Routes>
+
+      </div>
+
+      {/* Bottom Nav */}
+      {showNav && <BottomNav />}
+
     </>
   );
 }
 
 export default function App() {
-  const [dark, setDark] = useState(false);
-
-  return (
-    <div className={dark ? "dark-mode" : "light-mode"}>
-      <Layout dark={dark} setDark={setDark} />
-    </div>
-  );
+  return <Layout />;
 }
