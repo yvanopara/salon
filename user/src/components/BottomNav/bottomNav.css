@@ -9,13 +9,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 90;
   transition: all 0.3s ease;
 }
 
 .bottom-nav.dark {
-  background: #1f2937;
-  border-top-color: #374151;
+  background: rgba(17, 10, 28, 0.88); /* Même couleur que navbar dark */
+  border-top: 1px solid rgba(192, 132, 252, 0.16); /* Même style que navbar dark */
+  color: #9ca3af; /* Tu peux garder la couleur du texte actuelle */
 }
 
 .bottom-nav-container {

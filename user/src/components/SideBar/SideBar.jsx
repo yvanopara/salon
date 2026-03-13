@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext"; // ← utilisation du ThemeContext
 import "./sideBar.css";
 
-export default function Sidebar({ isOpen, closeSidebar, dark }) {
+export default function Sidebar({ isOpen, closeSidebar }) {
   const navigate = useNavigate();
+  const { theme } = useTheme(); // ← récupération du theme depuis le context
 
   // Effet pour ajouter/enlever le flou sur le body
   useEffect(() => {
@@ -12,7 +14,7 @@ export default function Sidebar({ isOpen, closeSidebar, dark }) {
     } else {
       document.body.classList.remove('sidebar-open');
     }
-    
+
     // Nettoyage quand le composant est démonté
     return () => {
       document.body.classList.remove('sidebar-open');
@@ -25,8 +27,6 @@ export default function Sidebar({ isOpen, closeSidebar, dark }) {
     { label: "Galerie", path: "/gallery" },
     { label: "À propos", path: "/about" }
   ];
-
-  const theme = dark ? "dark" : "light";
 
   if (!isOpen) return null;
 
@@ -57,8 +57,12 @@ export default function Sidebar({ isOpen, closeSidebar, dark }) {
 
         <div className="sidebar-footer">
           <div className={`sidebar-footer-card ${theme}`}>
-            <p className={`sidebar-footer-title ${theme}`}>✦ Thème {dark ? "sombre" : "clair"}</p>
-            <p className={`sidebar-footer-sub ${theme}`}>Icône lune / soleil en haut à droite</p>
+            <p className={`sidebar-footer-title ${theme}`}>
+              ✦ Thème {theme === "dark" ? "sombre" : "clair"}
+            </p>
+            <p className={`sidebar-footer-sub ${theme}`}>
+              Icône lune / soleil en haut à droite
+            </p>
           </div>
         </div>
       </aside>
